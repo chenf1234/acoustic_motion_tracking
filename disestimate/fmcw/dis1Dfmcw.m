@@ -13,7 +13,7 @@ function dis=dis1Dfmcw(f0,B,T,fs,filename,line,pos)
     yr=yr(pos:length(yr));
     
     %每一个chirp处理一次，即40ms处理一次
-    c=346;%声音的传播速度
+    c=340;%声音的传播速度
     
     fb=fmcwpeak(f0,B,T,fs,yr);
     %figure;plot(fb,"r.-");

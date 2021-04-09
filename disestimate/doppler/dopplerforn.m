@@ -25,7 +25,7 @@ function v=dopplerforn(fbegin,filename,T,fs,line,pos,n)
                     index=k;
                 end
             end
-            vtmp=[vtmp,(f(index)-center)*346/center];
+            vtmp=[vtmp,(f(index)-center)*340/center];
         end
         v=[v;vtmp];  
     end

@@ -23,7 +23,7 @@ function v=dopplerMeasure(filename,T,fs,center_f,line,pos)
     ft=smoothdata(ft,"movmean",5);
     figure;
     plot(ft,"b.-");
-    c=346;%声音传播速度
+    c=340;%声音传播速度
     v=ft*c/center_f;
     %figure;
     %plot(v,"r.-");

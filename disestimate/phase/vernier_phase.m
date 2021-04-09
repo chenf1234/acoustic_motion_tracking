@@ -10,8 +10,10 @@ function dis=vernier_phase(filename,line,f,fs,pos)
     data=readfile(filename,line);
     data=data';
     data=firbandpass(f-100,f+100,data,fs);
-   % pos=find(data>0);
-   % pos=pos(1)+2;
+    if(pos==0)
+        pos=find(data>0);
+        pos=pos(1)+2;
+    end
     data=data(pos:end);
    
     localmaxnum=zeros(1,length(data));

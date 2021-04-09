@@ -19,8 +19,11 @@ function dis=LLAP_phase(filename,line,f,fs,pos)
     cosd=cos(2*f*pi*t);
     I=data.*cosd;
     Q=data.*sind;
-    I=firlowpass(150,I,fs);
-    Q=firlowpass(150,Q,fs);
+    %滤波时的通带截止频率得好好选择
+    wp=fix(f/c);
+    %wp=30;
+    I=firlowpass(wp,I,fs);
+    Q=firlowpass(wp,Q,fs);
     
     %计算相位
     N=length(I);
@@ -56,5 +59,6 @@ function dis=LLAP_phase(filename,line,f,fs,pos)
         dis=[dis,-(phase(i)-phase(1))*c/(2*pi*f)];
     end
     dis=kalman_smooth(dis,1e-6,5e-5);
+    dis=dis-dis(1);
     figure;plot(dis);
 end

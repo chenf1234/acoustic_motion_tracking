@@ -28,7 +28,7 @@ function fb=fmcwpeak(f0,B,T,fs,yr)
         tmp=[tmp,zeros(1,fs-length(tmp))];%在数据后面补0，提高分辨率
         
         %根据上一个chirp的峰值，当前chirp的峰值位于[fp(i-1)-5,fp(i-1)+5]的范围内
-        %使用带通滤波器保留该范围的频率，提供峰值预测的准确度
+        %使用带通滤波器保留该范围的频率，提高峰值预测的准确度
         
         flow1=fb(end)-5;
         flow2=fb(end)+5;
