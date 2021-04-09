@@ -1,4 +1,5 @@
 function [xpos,ypos,zpos]=pure_cal_pos(dis0,dis1,dis2,line)
+%计算3D空间中的位置
     %初始位置
     speaker0=[0,0,0];
     speaker1=[0,0.8,0];

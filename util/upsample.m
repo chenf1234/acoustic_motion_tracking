@@ -13,8 +13,8 @@ function [x,fs]=upsample(y,f,fs,n1)
     fcuts=[f f+100];
     mags = [1 0];
     devs = [0.05 0.01];
-    [n,Wn,beta,ftype] = kaiserord(fcuts,mags,devs,fs);
-    b = fir1(n,Wn,ftype,kaiser(n+1,beta),'noscale');
+    %[n,Wn,beta,ftype] = kaiserord(fcuts,mags,devs,fs);
+    %b = fir1(n,Wn,ftype,kaiser(n+1,beta),'noscale');
     %x = filter(b,1,tmp);
     
     %step2：低通滤波，使用matlab自带的lowpass滤波器，效果比自己写的fir滤波器好，和resample效果差不多
