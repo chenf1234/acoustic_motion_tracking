@@ -1,12 +1,15 @@
-function LLAP_phase(filename,line,f,fs,pos)
-%LLAP论文复现,使用相位,效果比vernier好
+function dis=LLAP_phase(filename,line,f,fs,pos)
+%LLAP论文复现,使用相位,距离远时,效果比vernier好
+%LLAP受多径的干扰没有vernier严重
     %读取数据
     c=340;
     data=readfile(filename,line);
     data=data';
     data=firbandpass(f-100,f+100,data,fs);
-    pos=find(data>0);
-    pos=pos(1)+2;
+    if(pos==0)
+        pos=find(data>0);
+        pos=pos(1)+2;
+    end
     data=data(pos:end);
     
     %获得I分量和Q分量
@@ -48,8 +51,8 @@ function LLAP_phase(filename,line,f,fs,pos)
 
     end
     dis=[];
-    windowsize=fs*0.01;%10ms
-    for i=[2:windowsize:length(phase)]
+    windowsize=fs*0.04;%40ms
+    for i=[windowsize/2:windowsize:length(phase)]
         dis=[dis,-(phase(i)-phase(1))*c/(2*pi*f)];
     end
     dis=kalman_smooth(dis,1e-6,5e-5);

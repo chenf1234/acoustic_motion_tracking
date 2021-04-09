@@ -50,6 +50,6 @@ function fb=fmcwpeak(f0,B,T,fs,yr)
  
     end
     
-    fb=fb(15:end);
+    fb=fb(2:end);
     
 end

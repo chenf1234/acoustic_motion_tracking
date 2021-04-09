@@ -24,9 +24,9 @@ function [xpos,ypos,zpos]=dis3Dfmcw_phase(filename,line)
     dis2f=dis2f-dis2f(1);
     
     %根据相位求距离
-    dis0p=vernier_phase(filename,line,f3,fs,pos0);
-    dis1p=vernier_phase(filename,line,f4,fs,pos1);
-    dis2p=vernier_phase(filename,line,f5,fs,pos2);
+    dis0p=LLAP_phase(filename,line,f3,fs,pos0);
+    dis1p=LLAP_phase(filename,line,f4,fs,pos1);
+    dis2p=LLAP_phase(filename,line,f5,fs,pos2);
     
     [xpos,ypos,zpos]=optimize_cal_pos_v2(dis0f,dis1f,dis2f,dis0p,dis1p,dis2p,line);
 end

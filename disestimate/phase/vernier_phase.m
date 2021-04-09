@@ -4,21 +4,25 @@ function dis=vernier_phase(filename,line,f,fs,pos)
 %一些多径对最终结果和影响和直接路径的影响差不多，
 %因此这些路径传播来的声波接收后叠加起来将一些极值模糊了，变成了非极值，造成结果不准，
 %并且，参考论文中的实验环境是比较空旷的，所以应该就是未考虑多径
+%比LLAP相比，vernier受多径的干扰更严重
     c=346;
     windownum=fs*0.01;
     data=readfile(filename,line);
     data=data';
     data=firbandpass(f-100,f+100,data,fs);
+   % pos=find(data>0);
+   % pos=pos(1)+2;
     data=data(pos:end);
    
     localmaxnum=zeros(1,length(data));
-   
+    %计算每个点的LMP
     for i=2:windownum
         if(data(i)>=data(i-1)&&data(i)>data(i+1))
             localmaxnum(i)=localmaxnum(i-1)+1;
         else localmaxnum(i)=localmaxnum(i-1);
         end
     end
+    %第一个窗口的LMPS
     baseN=sum(localmaxnum);
     preN=baseN;
     dis=[];
@@ -27,6 +31,7 @@ function dis=vernier_phase(filename,line,f,fs,pos)
             localmaxnum(i)=localmaxnum(i-1)+1;
         else localmaxnum(i)=localmaxnum(i-1);
         end
+        %计算每个窗口的LMPS
         curN=preN+localmaxnum(i)-localmaxnum(i-windownum);
         preN=curN;
         phi=(curN-baseN)*2*pi/windownum;
