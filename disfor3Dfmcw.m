@@ -11,6 +11,7 @@ function [xpos,ypos,zpos]=disfor3Dfmcw(filename,line)
     
     %互相关求对齐位置
     pos0=align(f0,B,T,fs,filename);
+    %pos0
     pos1=align(f1,B,T,fs,filename);
     pos2=align(f2,B,T,fs,filename);
     
@@ -23,6 +24,7 @@ function [xpos,ypos,zpos]=disfor3Dfmcw(filename,line)
     dis2=dis2-dis2(1);
     %figure;plot(dis0,"r.-");figure;plot(dis1,"r.-");figure;plot(dis2,"r.-");
     [xpos,ypos,zpos]=optimize_cal_pos(dis0,dis1,dis2,line);
+    title("FMCW");
     %[xpos,ypos,zpos]=pure_cal_pos(dis0,dis1,dis2,line);
     
     

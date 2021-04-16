@@ -29,4 +29,5 @@ function [xpos,ypos,zpos]=dis3Dfmcw_phase(filename,line)
     dis2p=LLAP_phase(filename,line,f5,fs,pos2);
     
     [xpos,ypos,zpos]=optimize_cal_pos_v2(dis0f,dis1f,dis2f,dis0p,dis1p,dis2p,line);
+    title("FMCW+phase");
 end

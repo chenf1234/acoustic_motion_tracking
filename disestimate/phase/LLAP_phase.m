@@ -31,9 +31,10 @@ function dis=LLAP_phase(filename,line,f,fs,pos)
     num=0;
     for i=[1:N]
         
-            if(I(i)>0)%第一象限和x正半轴和第三象限
+            if(I(i)>0)%第一象限和x正半轴和第四象限
                 phase(i)=atan(Q(i)/I(i));
-            elseif(I(i)<0)%第二象限和x负半轴和第四象限
+            
+            elseif(I(i)<0)%第二象限和x负半轴和第三象限
                 phase(i)=atan(Q(i)/I(i))+pi;
             elseif(I(i)==0&&Q(i)>0)%y轴正半轴
                 phase(i)=pi/2;
@@ -43,6 +44,7 @@ function dis=LLAP_phase(filename,line,f,fs,pos)
                 phase(i)=0;
             end
         if(i>1)
+            
             num=fix(phase(i-1)/2/pi);
             phase(i)=phase(i)+2*num*pi;
             if(phase(i)-phase(i-1)<-pi)
@@ -60,5 +62,6 @@ function dis=LLAP_phase(filename,line,f,fs,pos)
     end
     dis=kalman_smooth(dis,1e-6,5e-5);
     dis=dis-dis(1);
-    figure;plot(dis);
+    figure;plot(dis,"r.-");
+    title("取单频正弦波相位测距结果")
 end

@@ -11,4 +11,5 @@ function x=firlowpass(f0,y,fs)
     %h=20*log10(abs(h));
     %figure;plot(w,h);title('所设计滤波器的通带曲线');grid on;
     x=filter(b,1,y);
+    %x=filtfilt(b,1,y);
 end

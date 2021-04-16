@@ -7,7 +7,7 @@ function x=firbandpass(f1,f2,y,fs)
     [n,Wn,beta,ftype] = kaiserord(fcuts,mags,devs,fs);
     %disp(ftype);
     b = fir1(n,Wn,ftype,kaiser(n+1,beta),'noscale');
-    %b = fir1(48,[f1 f2]/(fs/2),"bandpass");
+    %b = fir1(40,[f1 f2]/(fs/2),"bandpass");
     %freqz(b,1,1024,fs);
     %[h,w] = freqz(b,1,1024,fs);
     %h=20*log10(abs(h));

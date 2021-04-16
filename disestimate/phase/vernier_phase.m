@@ -5,7 +5,7 @@ function dis=vernier_phase(filename,line,f,fs,pos)
 %因此这些路径传播来的声波接收后叠加起来将一些极值模糊了，变成了非极值，造成结果不准，
 %并且，参考论文中的实验环境是比较空旷的，所以应该就是未考虑多径
 %比LLAP相比，vernier受多径的干扰更严重
-    c=346;
+    c=340;
     windownum=fs*0.01;
     data=readfile(filename,line);
     data=data';

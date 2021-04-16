@@ -24,5 +24,6 @@ function dis=dis1Dfmcw(f0,B,T,fs,filename,line,pos)
     dis=kalman_smooth(dis,1e-6,5e-5);
     dis=smoothdata(dis,"movmean",5);
     figure;plot(dis,"r.-");
+    title("FMCW声波测距结果");
 
 end

@@ -16,7 +16,7 @@ function fb=fmcwpeak(f0,B,T,fs,yr)
     [freq,ampl]=frequencyAnalysis(tmp,fs);%用10个chirp的数据估测第一个峰值
     [maxval,index]=max(abs(ampl));
     
-    [pks,locs]=findpeaks(abs(ampl),"MinPeakHeight",0.6*maxval);
+    [pks,locs]=findpeaks(abs(ampl),"MinPeakHeight",0.7*maxval);
     fb=[freq(locs(1))];%还是得用第一个峰值
     
     for i=1:fftNum:N
