@@ -1,4 +1,5 @@
 function v=dopplerforn(fbegin,filename,T,fs,line,pos,n)
+%测量n个频率对应的多普勒频移，频率从fbegin开始，每个相隔200Hz
 %n-doppler的频率个数
     v=[];
     data=readfile(filename,line);

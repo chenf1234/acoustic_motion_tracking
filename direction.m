@@ -4,6 +4,7 @@ function direction()
     %设置输入文件名
     filename=input("请输入测试文件名：");
     filename=sprintf("./testfiles/%s.wav",filename);
+    
     %[xpos1,ypos1,zpos1]=disfor3Dfmcw(filename,1);
     %[xpos2,ypos2,zpos2]=disfor3Dfmcw(filename,2);
     
@@ -12,6 +13,7 @@ function direction()
     
     [xpos1,ypos1,zpos1]=dis3Dfmcw_phase(filename,1);
     [xpos2,ypos2,zpos2]=dis3Dfmcw_phase(filename,2);
+    
     angle=[];
     figure;
     plot3([0],[0],[0],"ro");

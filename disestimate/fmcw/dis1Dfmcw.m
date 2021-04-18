@@ -23,7 +23,7 @@ function dis=dis1Dfmcw(f0,B,T,fs,filename,line,pos)
     %使用卡尔曼滤波平滑
     dis=kalman_smooth(dis,1e-6,5e-5);
     dis=smoothdata(dis,"movmean",5);
-    figure;plot(dis,"r.-");
-    title("FMCW声波测距结果");
+    %figure;plot(dis,"r.-");ylabel("distance variation(m)");
+    %title("FMCW声波测距结果");
 
 end

@@ -1,11 +1,11 @@
 function [xpos,ypos,zpos]=disfor3Ddoppler(filename,line)
-    f0=18e3;
-    f1=19e3;
-    f2=20e3;
+    f0=14e3;
+    f1=14.6e3;
+    f2=15.2e3;
     T=0.04;
     fs=48e3;
     pos=1920;
-    n=5;
+    n=3;
     
     v0=dopplerforn(f0,filename,T,fs,line,pos,n);
     v0=dopplern2one(v0,n);
@@ -56,5 +56,5 @@ function [xpos,ypos,zpos]=disfor3Ddoppler(filename,line)
         plot3(xpos,ypos,zpos,"r.-");
         drawnow;
     end
-    num;
+    disp(num);
 end

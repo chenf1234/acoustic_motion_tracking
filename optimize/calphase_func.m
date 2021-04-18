@@ -1,4 +1,5 @@
 function [val,gradient]=calphase_func(x,initphase,f0,B,T,D)
+%与millisonic复现相关
    % syms td 
    % td=solve(2*pi*(f0*td-B/2/T*td^2)==initphase+2*x*pi,td);
    % td1=double(td(1));

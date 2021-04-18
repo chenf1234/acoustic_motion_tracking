@@ -62,6 +62,6 @@ function dis=LLAP_phase(filename,line,f,fs,pos)
     end
     dis=kalman_smooth(dis,1e-6,5e-5);
     dis=dis-dis(1);
-    figure;plot(dis,"r.-");
-    title("取单频正弦波相位测距结果")
+    %figure;plot(dis,"r.-");ylabel("distance variation(m)");
+    %title("取单频正弦波相位测距结果")
 end
