@@ -2,18 +2,18 @@ function [xpos,ypos,zpos]=optimize_cal_pos_v2(dis0f,dis1f,dis2f,dis0p,dis1p,dis2
 %相位与FMCW的结合
     %初始位置
     speaker0=[0,0,0];
-    speaker1=[0,0.8,0];
-    speaker2=[0,0.8,-0.65];
+    speaker1=[0.8,0,0];
+    speaker2=[0.8,0,-0.65];
     if line==1
         D2=0.6;
         D1=sqrt(D2^2+0.65^2);
         D0=sqrt(D1^2+0.8^2);
-        micinit=[D2,0.8,-0.65];
+        micinit=[0.8,D2,-0.65];
     else
         D2=sqrt(0.6^2+0.16^2);
         D1=sqrt(0.6^2+(0.65-0.16)^2);
         D0=sqrt(D1^2+0.8^2);
-        micinit=[0.6,0.8,-0.65+0.16];
+        micinit=[0.8,0.6,-0.65+0.16];
     end
     mic=[micinit];
     N=min(length(dis0f),min(length(dis1f),length(dis2f)));
@@ -43,7 +43,9 @@ function [xpos,ypos,zpos]=optimize_cal_pos_v2(dis0f,dis1f,dis2f,dis0p,dis1p,dis2
         ypos=mic(:,2)';
         zpos=mic(:,3)';
         plot3(xpos,ypos,zpos,"r.-");
+        
         hold on;
         drawnow;
     end
+    legend("手机麦克风运动轨迹",'Location','northoutside','fontsize',10);
 end

@@ -26,6 +26,9 @@ function [xpos,ypos,zpos]=disfor3Dfmcw(filename,line)
     [xpos,ypos,zpos]=optimize_cal_pos(dis0,dis1,dis2,line);
     title("FMCW");
     %[xpos,ypos,zpos]=pure_cal_pos(dis0,dis1,dis2,line);
-    
+    hold off;
+    figure;plot(xpos,ypos,"r.-");title("X-Y平面坐标变化");xlabel("X轴");ylabel("Y轴");
+    figure;plot(xpos,zpos,"r.-");title("X-Z平面坐标变化");xlabel("X轴");ylabel("Z轴");
+    figure;plot(ypos,zpos,"r.-");title("Y-Z平面坐标变化");xlabel("Y轴");ylabel("Z轴");
     
 end

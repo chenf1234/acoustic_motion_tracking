@@ -21,7 +21,7 @@ function dis=LLAP_phase(filename,line,f,fs,pos)
     Q=data.*sind;
     %滤波时的通带截止频率得好好选择
     wp=fix(f/c);
-    %wp=30;
+   % wp=40;
     I=firlowpass(wp,I,fs);
     Q=firlowpass(wp,Q,fs);
     
