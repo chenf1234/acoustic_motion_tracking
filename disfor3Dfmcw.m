@@ -11,9 +11,11 @@ function [xpos,ypos,zpos]=disfor3Dfmcw(filename,line)
     
     %互相关求对齐位置
     pos0=align(f0,B,T,fs,filename);
-    %pos0
+   %pos0=2000;
     pos1=align(f1,B,T,fs,filename);
+   % pos1=2000;
     pos2=align(f2,B,T,fs,filename);
+   % pos2=2000;
     
     %根据fmcw求距离
     dis0=dis1Dfmcw(f0,B,T,fs,filename,line,pos0);
@@ -27,8 +29,8 @@ function [xpos,ypos,zpos]=disfor3Dfmcw(filename,line)
     title("FMCW");
     %[xpos,ypos,zpos]=pure_cal_pos(dis0,dis1,dis2,line);
     hold off;
-    figure;plot(xpos,ypos,"r.-");title("X-Y平面坐标变化");xlabel("X轴");ylabel("Y轴");
-    figure;plot(xpos,zpos,"r.-");title("X-Z平面坐标变化");xlabel("X轴");ylabel("Z轴");
-    figure;plot(ypos,zpos,"r.-");title("Y-Z平面坐标变化");xlabel("Y轴");ylabel("Z轴");
+    figure;plot(xpos,ypos,"r.-");title("X-Y平面坐标变化");xlabel("X轴");ylabel("Y轴");axis equal;
+    figure;plot(xpos,zpos,"r.-");title("X-Z平面坐标变化");xlabel("X轴");ylabel("Z轴");axis equal;
+    figure;plot(ypos,zpos,"r.-");title("Y-Z平面坐标变化");xlabel("Y轴");ylabel("Z轴");axis equal;
     
 end

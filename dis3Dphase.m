@@ -19,14 +19,15 @@ function [xpos,ypos,zpos]=dis3Dphase(filename,line)
     dis0=sum(dis0,1)/n;
     dis1=sum(dis1,1)/n;
     dis2=sum(dis2,1)/n;
-   % figure;plot(dis0p,"r.-");ylabel("distance variation(m)");title("取单频正弦波相位测距结果");
-   % figure;plot(dis1p,"r.-");ylabel("distance variation(m)");title("取单频正弦波相位测距结果");
-   % figure;plot(dis2p,"r.-");ylabel("distance variation(m)");title("取单频正弦波相位测距结果");
+    
+   % figure;plot(dis0,"r.-");ylabel("distance variation(m)");title("取单频正弦波相位测距结果");
+   % figure;plot(dis1,"r.-");ylabel("distance variation(m)");title("取单频正弦波相位测距结果");
+   % figure;plot(dis2,"r.-");ylabel("distance variation(m)");title("取单频正弦波相位测距结果");
     
     [xpos,ypos,zpos]=optimize_cal_pos(dis0,dis1,dis2,line);
     title("phase");
     hold off;
-    figure;plot(xpos,ypos,"r.-");title("X-Y平面坐标变化");xlabel("X轴");ylabel("Y轴");
-    figure;plot(xpos,zpos,"r.-");title("X-Z平面坐标变化");xlabel("X轴");ylabel("Z轴");
-    figure;plot(ypos,zpos,"r.-");title("Y-Z平面坐标变化");xlabel("Y轴");ylabel("Z轴");
+    figure;plot(xpos,ypos,"r.-");title("X-Y平面坐标变化");xlabel("X轴");ylabel("Y轴");axis equal;
+    figure;plot(xpos,zpos,"r.-");title("X-Z平面坐标变化");xlabel("X轴");ylabel("Z轴");axis equal;
+    figure;plot(ypos,zpos,"r.-");title("Y-Z平面坐标变化");xlabel("Y轴");ylabel("Z轴");axis equal;
 end
