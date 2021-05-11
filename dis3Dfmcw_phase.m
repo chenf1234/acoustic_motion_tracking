@@ -23,9 +23,9 @@ function [xpos,ypos,zpos]=dis3Dfmcw_phase(filename,line)
     dis0f=dis0f-dis0f(1);
     dis1f=dis1f-dis1f(1);
     dis2f=dis2f-dis2f(1);
-   % figure;plot(dis0f,"r.-");ylabel("distance variation(m)");title("FMCW声波测距结果");
-   % figure;plot(dis1f,"r.-");ylabel("distance variation(m)");title("FMCW声波测距结果");
-   % figure;plot(dis2f,"r.-");ylabel("distance variation(m)");title("FMCW声波测距结果");
+    figure;plot(dis0f,"r.-");ylabel("distance variation(m)");title("FMCW声波测距结果");
+    figure;plot(dis1f,"r.-");ylabel("distance variation(m)");title("FMCW声波测距结果");
+    figure;plot(dis2f,"r.-");ylabel("distance variation(m)");title("FMCW声波测距结果");
     %根据相位求距离
     dis0p=[];
     dis1p=[];
@@ -41,13 +41,16 @@ function [xpos,ypos,zpos]=dis3Dfmcw_phase(filename,line)
     dis0p=sum(dis0p,1)/n;
     dis1p=sum(dis1p,1)/n;
     dis2p=sum(dis2p,1)/n;
-   % figure;plot(dis0p,"r.-");ylabel("distance variation(m)");title("取单频正弦波相位测距结果");
-   % figure;plot(dis1p,"r.-");ylabel("distance variation(m)");title("取单频正弦波相位测距结果");
-   % figure;plot(dis2p,"r.-");ylabel("distance variation(m)");title("取单频正弦波相位测距结果");
+    figure;plot(dis0p,"r.-");ylabel("distance variation(m)");title("取单频正弦波相位测距结果");
+    figure;plot(dis1p,"r.-");ylabel("distance variation(m)");title("取单频正弦波相位测距结果");
+    figure;plot(dis2p,"r.-");ylabel("distance variation(m)");title("取单频正弦波相位测距结果");
     [xpos,ypos,zpos]=optimize_cal_pos_v2(dis0f,dis1f,dis2f,dis0p,dis1p,dis2p,line);
+    %plot3([0.8,0,0,0.8,0.8],[0.6,0.7,0.7,0.6,0.6],[-0.65,-0.65,0,0,-0.65],"b",'DisplayName',"手机麦克风实际运动轨迹");
     title("FMCW+phase");
     hold off;
     figure;plot(xpos,ypos,"r.-");title("X-Y平面坐标变化");xlabel("X轴");ylabel("Y轴");axis equal;
     figure;plot(xpos,zpos,"r.-");title("X-Z平面坐标变化");xlabel("X轴");ylabel("Z轴");axis equal;
     figure;plot(ypos,zpos,"r.-");title("Y-Z平面坐标变化");xlabel("Y轴");ylabel("Z轴");axis equal;
+   % figure;
+   % subplot(2,2,1);
 end

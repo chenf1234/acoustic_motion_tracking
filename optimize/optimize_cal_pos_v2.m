@@ -43,9 +43,8 @@ function [xpos,ypos,zpos]=optimize_cal_pos_v2(dis0f,dis1f,dis2f,dis0p,dis1p,dis2
         ypos=mic(:,2)';
         zpos=mic(:,3)';
         plot3(xpos,ypos,zpos,"r.-");
-        
         hold on;
         drawnow;
     end
-    legend("手机麦克风运动轨迹",'Location','northoutside','fontsize',10);
+    legend("手机麦克风测量运动轨迹",'Location','northoutside','fontsize',10);
 end
