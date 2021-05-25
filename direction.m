@@ -33,5 +33,18 @@ function direction()
         disp("X轴夹角："+num2str(angle(i,1),"%08.4f")+"°，Y轴夹角："+num2str(angle(i,2),"%08.4f")+"°，Z轴夹角："+num2str(angle(i,3),"%08.4f")+"°");
     end
     disp(angle);
-        
+    a=angle(:,3)';b=angle(:,1)';r=angle(:,2)';
+    len=length(a);
+    t=[];
+    for i=[0:len-1]
+        t=[t,i*0.04];
+    end
+    figure;
+    subplot(2,2,1);plot3(b,r,t,"r.-");hold on;plot3(ones(1,len)*90,ones(1,len)*90,t,"b.-");hold off;
+    xlabel("β角(°)");ylabel("γ角(°)");title("β-γ随时间的变化");legend("测量值","真实值",'Location','northoutside');
+    subplot(2,2,2);plot3(b,a,t,"r.-");hold on;plot3(ones(1,len)*90,ones(1,len)*0,t,"b.-");hold off;
+    xlabel("β角(°)");ylabel("α角(°)");title("β-α随时间的变化");legend("测量值","真实值",'Location','northoutside');
+    subplot(2,2,3);plot3(r,a,t,"r.-");hold on;plot3(ones(1,len)*90,ones(1,len)*0,t,"b.-");hold off;
+    xlabel("γ角(°)");ylabel("α角(°)");title("γ-α随时间的变化");legend("测量值","真实值",'Location','northoutside');
+    subplot(2,2,4);plot3(b,r,a,"r.-");xlabel("β角(°)");ylabel("γ角(°)");zlabel("α角(°)");
 end

@@ -16,14 +16,14 @@ function dis=dis1Dfmcw(f0,B,T,fs,filename,line,pos)
     c=340;%声音的传播速度
     
     fb=fmcwpeak(f0,B,T,fs,yr);
-    %figure;plot(fb,"r.-");
+    
     %计算距离,没有考虑速度的影响
     dis=fb*c*T/B;
   
     %使用卡尔曼滤波平滑
     dis=kalman_smooth(dis,1e-6,5e-5);
     dis=smoothdata(dis,"movmean",5);
-    %figure;plot(dis,"r.-");ylabel("distance variation(m)");
+   % figure;plot(dis,".-");ylabel("distance(m)");
     %title("FMCW声波测距结果");
 
 end
